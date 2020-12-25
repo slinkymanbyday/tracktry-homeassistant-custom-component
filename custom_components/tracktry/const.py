@@ -6,7 +6,9 @@ DOMAIN_DATA = f"{DOMAIN}_data"
 VERSION = "0.0.0"
 
 ATTRIBUTION = "Data provided by Tracktry"
-ISSUE_URL = "https://github.com/slinkymanbyday/tracktry-homeassistant-custom-component/issues"
+ISSUE_URL = (
+    "https://github.com/slinkymanbyday/tracktry-homeassistant-custom-component/issues"
+)
 
 # Icons
 ICON = "mdi:package"
@@ -17,8 +19,8 @@ PLATFORMS = [SENSOR]
 
 
 # Configuration and options
-CONF_ENABLED = "enabled"
-CONF_API_KEY = "API key"
+# CONF_ENABLED = "enabled"
+CONF_API_KEY = "key"
 
 # Defaults
 DEFAULT_NAME = DOMAIN

@@ -1,10 +1,14 @@
 {
-  "domain": "tracktry",
-  "name": "Tracktry",
-  "documentation": "https://github.com/slinkymanbyday/tracktry-homeassistant-custom-component",
-  "issue_tracker": "https://github.com/slinkymanbyday/tracktry-homeassistant-custom-component/issues",
-  "dependencies": [],
-  "config_flow": true,
-  "codeowners": ["@slinkymanbyday"],
-  "requirements": ["tracktry==0.1.0"]
+    "domain": "tracktry",
+    "name": "Tracktry",
+    "documentation": "https://github.com/slinkymanbyday/tracktry-homeassistant-custom-component",
+    "issue_tracker": "https://github.com/slinkymanbyday/tracktry-homeassistant-custom-component/issues",
+    "dependencies": [],
+    "config_flow": false,
+    "codeowners": [
+        "@slinkymanbyday"
+    ],
+    "requirements": [
+        "tracktry==0.1.1"
+    ]
 }
