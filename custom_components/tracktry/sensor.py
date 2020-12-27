@@ -23,7 +23,6 @@ ATTR_TRACKINGS = "trackings"
 ATTR_COURIERS = "couriers"
 
 BASE = "https://www.tracktry.com/track/"
-BASE_LINK = "https://track.aftership.com/trackings"
 
 CONF_SLUG = "slug"
 CONF_TITLE = "title"
@@ -197,7 +196,7 @@ class TracktrySensor(Entity):
                 "name": name,
                 "tracking_number": track["tracking_number"],
                 "slug": track["carrier_code"],
-                "link": f'{BASE_LINK}?courier={track["carrier_code"]}&tracking-numbers={track["tracking_number"]}',
+                "link": f'{BASE}{track["tracking_number"]}/{track["carrier_code"]}',
                 "last_update": track["updated_at"],
                 "status": status,
                 "status_description": None,
@@ -232,3 +231,4 @@ class TracktrySensor(Entity):
         }
 
         self._state = not_delivered_count
+
