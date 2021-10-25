@@ -1,4 +1,5 @@
 """Support for non-delivered packages recorded in tracktry."""
+from http import HTTPStatus
 import logging
 from datetime import datetime
 from datetime import timedelta
@@ -9,7 +10,6 @@ from homeassistant.components.sensor import PLATFORM_SCHEMA
 from homeassistant.const import ATTR_ATTRIBUTION
 from homeassistant.const import CONF_API_KEY
 from homeassistant.const import CONF_NAME
-from homeassistant.const import HTTP_OK
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.dispatcher import async_dispatcher_send
 from homeassistant.helpers.entity import Entity
@@ -70,7 +70,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
 
     await tracktry.get_trackings()
 
-    if not tracktry.meta or tracktry.meta["code"] != HTTP_OK:
+    if not tracktry.meta or tracktry.meta["code"] != HTTPStatus.OK:
         _LOGGER.error(
             "No tracking data found. Check API key is correct: %s", tracktry.meta
         )
@@ -181,7 +181,7 @@ class TracktrySensor(Entity):
         if not self.tracktry.meta:
             _LOGGER.error("Unknown errors when querying")
             return
-        if self.tracktry.meta["code"] != HTTP_OK:
+        if self.tracktry.meta["code"] != HTTPStatus.OK:
             _LOGGER.error("Errors when querying tracktry. %s", str(self.tracktry.meta))
             return
 
